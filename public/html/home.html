@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <meta charset="UTF-8">
+    <title>MATH</title>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/grades/home.css">
+  
+  </head>
+  <body>
+<!-- NAVBAR -->
+<div class="jumbotron" id="main"><h3 id="greeting" class="text-center" ></h3>
+<h1 class="text-center">Math Department</h1>
+<h3 class="text-center">Select Your Grade Level</h3></div>
+<nav class="navbar navbar-default" style="margin-top:-30px;">
+  <div class="container">
+    <div class="col-lg-2"></div>
+      <div class="col-lg-8">
+        <ul class="nav navbar-nav" style="margin-left:80px">
+          <li><a href="/sixth"> 6th Grade</a></li>
+          <li><a href="/seventh">7th Grade</a></li>
+          <li><a href="/eighth">8th Grade</a></li>
+          <li><a href="/algebra">Algebra </a></li>
+          <li><a href="/logout" class="c-ref"> Sign Out</a></li>
+        </ul>
+      </div>
+    <div class="col-lg-2"></div>
+  </div>                             
+</nav>
+
+<!-- END NAV -->
+
+<!--  <div class="container">
+  <div class="row">
+     <div class="col-lg-4"></div>
+     <div class="col-lg-4"> <img id="img" src="../css/img/tr.png"></div>  
+     <div class="col-lg-4"></div>
+  </div>
+ </div> -->
+
+
+ <div class="container">
+  <div class="row">
+      <div class="col-lg-12"> 
+         <div class="outer-div"><a href="/sixth"><img id="inner-div" src="../css/img/sixth.png"> <!-- <div id="HiddenText"><p>Sixth</p></div> --></a></div>
+
+         <div class="outer-div"><a href="/seventh"><img id="inner-div" src="../css/img/seventh.png"></a></div>
+         
+         <div class="outer-div"><a href="/eighth"><img id="inner-div" src="../css/img/eighth.png"></a></div>
+         
+         <div class="outer-div"><a href="/algebra"><img id="inner-div" src="../css/img/algebra.png"></a></div>
+      </div> 
+  </div>
+<!--   <footer class="row">
+      <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+        <a href="#"><h4>Copyright © 2017 Tom Frazzitta</h4></a>
+      </div>
+    </footer> -->
+ </div>
+
+<script>
+$(document).ready(function(){
+  $.ajax({
+        method: "GET",
+        url: '/hello'
+      }).done(function(data) {
+        $("#greeting").html("Hello " +data);
+      })
+})
+</script>
+</body>
+</html>
+

@@ -1,0 +1,29 @@
+
+.panel-heading {
+background-color: darkgray;
+font-size: 18px;
+}
+
+body{
+background-color: darkgray;
+}
+
+.panel-default>.panel-heading{
+background-image: -webkit-linear-gradient(top,darkgray 0,darkgray 100%); 
+background-image: -o-linear-gradient(top,darkgray 0,darkgray 100%);
+background-image: -webkit-gradient(linear,left top,left bottom,from(darkgray),to(#e8e8e8));
+background-image: linear-gradient(to bottom,darkgray 0,darkgray 100%); 
+}
+
+
+#back{
+/*background: url("https://ca.bigideasmath.com/protected/content/dcs_ca/a1/a1_cover.png")
+*/
+/*background: url("../css/algebra.png")
+*/background: url("../img/algebra.png")
+
+no-repeat fixed center;
+background-size: 77%;
+padding: 0;
+height: 970px;
+}

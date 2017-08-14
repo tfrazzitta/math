@@ -1,0 +1,24 @@
+.panel-heading {
+background-color: palegreen;
+font-size: 18px;
+}
+
+body{
+background-color: palegreen;
+}
+
+.panel-default>.panel-heading{
+background-image: -webkit-linear-gradient(top,palegreen 0,palegreen 100%); 
+background-image: -o-linear-gradient(top,palegreen 0,palegreen 100%);
+background-image: -webkit-gradient(linear,left top,left bottom,from(palegreen),to(#e8e8e8));
+background-image: linear-gradient(to bottom,palegreen 0,palegreen 100%); 
+}
+
+
+#back{
+background: url("../img/sixth.png")
+no-repeat fixed center;
+background-size: 77.8%;
+padding: 0;
+height: 970px;
+}

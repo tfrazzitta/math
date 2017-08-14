@@ -1,0 +1,48 @@
+.jumbotron{
+	background-color: #204d74;
+	color:white;
+}
+
+.outer-div{
+	height: 260px;
+	width: 260px;
+	margin: 10px;
+	box-shadow: 5px 5px 5px black;
+	margin-top: 35px;
+	background-color: lightgrey;
+	border:1px solid black;
+	float:left;
+}
+
+#inner-div{
+	height: 200px;
+	width: 200px;
+	margin: 0 auto;
+	position: relative;
+	left:27px;
+	top:27px;
+	box-shadow: 5px 5px 5px black;
+}
+
+/*#HiddenText {
+    display: none;
+    text-decoration: none;
+
+}
+
+.outer-div:hover #HiddenText {
+    display:block;
+    position: relative;
+	left:90px;
+	top:-100px;
+}
+
+p{
+	font-family: 'Crete Round', serif;
+	font-size: 40px;
+	color:#204d74;
+}
+
+a{
+	text-decoration: none;
+}*/

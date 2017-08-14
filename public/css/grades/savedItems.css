@@ -1,0 +1,38 @@
+
+.panel-heading {
+background-color: darkseagreen;
+font-size: 18px;
+}
+
+body{
+background-color: darkseagreen;
+}
+
+.panel-default>.panel-heading{
+background-image: -webkit-linear-gradient(top,darkseagreen 0,darkseagreen 100%); 
+background-image: -o-linear-gradient(top,darkseagreen 0,darkseagreen 100%);
+background-image: -webkit-gradient(linear,left top,left bottom,from(darkseagreen),to(#e8e8e8));
+background-image: linear-gradient(to bottom,darkseagreen 0,darkseagreen 100%); 
+}
+
+
+#back{
+background: url("https://cdn20.patchcdn.com/users/22821257/20170504/095657/styles/T600x450/public/article_images/school_apple_books_shutterstock-1493906208-412.jpg")
+no-repeat fixed center;
+background-size: 78%;
+padding: 0;
+height: 970px;
+}
+
+.btn-primary{
+background-image: -webkit-linear-gradient(top,darkseagreen 0,darkseagreen 100%); 
+background-image: -o-linear-gradient(top,darkseagreen 0,darkseagreen 100%);
+background-image: -webkit-gradient(linear,left top,left bottom,from(darkseagreen),to(darkseagreen)); 
+background-image: linear-gradient(to bottom,darkseagreen 0,darkseagreen 100%);
+border-color:darkseagreen;
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: darkseagreen !important;
+    border-color:darkseagreen !important;
+}

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <meta charset="UTF-8">
+    <title>MATH</title>
+    
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Crete+Round|Crimson+Text|Libre+Baskerville" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/grades/algebra.css">
+  
+</head>
+<body>
+  <div id="back" class="container"> 
+<!-- NAVBAR -->
+<div class="jumbotron" id="main"><h1 class="text-center" value="algebra">Algebra</h1></div>
+<nav class="navbar navbar-default" style="margin-top:-60px;opacity:.9; padding-left: 40px">
+  <div class="container">
+    <div class="col-lg-1"></div>
+      <div class="col-lg-10">
+        <ul class="nav navbar-nav">
+          <li><a href="#" name="algebra" class="upload">Upload</a></li>
+          <li><a href="/sixth"> 6th Grade</a></li>
+          <li><a href="/seventh">7th Grade</a></li>
+          <li><a href="/eighth">8th Grade</a></li>
+          <li><a href="/algebra">Algebra </a></li>
+          <li><a href="/savedItems">Saved Items</a></li>
+          <li><a href="/logout" class="c-ref"> Sign Out</a></li>
+        </ul>
+      </div>
+    <div class="col-lg-1"></div>
+  </div>                             
+</nav>
+<!-- END NAV -->
+
+<!-- START  -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4">
+          <div class="form-group">
+              <select class="form-control" id="type" name="type" value="algebra">
+                <option>Select By Type</option>
+                <option>Worksheet</option>
+                <option>Assessment</option>
+                <option>Lesson</option>
+                <option>Video</option>
+                <option>Other</option>
+              </select><br>
+          </div>
+    </div>
+
+    <div class="col-lg-4">
+          <div class="form-group">
+              <select class="form-control" id="chapter" name="chapter" value="algebra">
+                <option>Select By Chapter</option>
+                <option>Chapter 1</option>
+                <option>Chapter 2</option>
+                <option>Chapter 3</option>
+                <option>Chapter 4</option>
+                <option>Chapter 5</option>
+                <option>Chapter 6</option>
+                <option>Chapter 7</option>
+                <option>Chapter 8</option>
+                <option>Chapter 9</option>
+                <option>Chapter 10</option>
+              </select><br>
+            </div>
+    </div>
+    
+      <div class="col-lg-4">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search By Concept" id="topic" list="browsers" name="browser">
+          <datalist id="browsers"></datalist>
+          <span class="input-group-btn">
+            <button id="topic-button" value="algebra" class="btn btn-secondary]" type="button">Search
+            </button>
+          </span>
+      </div>
+    </div>  
+  </div>
+</div>
+<!-- END -->
+
+
+<!-- DISPLAY ITEMS-->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-1" id="a"></div>
+    <div class="col-lg-10" id="b" style="padding-left: 40px">
+      <div id="data"></div>
+      <div id="data1"></div>
+    </div>
+    <div class="col-lg-1" id="c"></div>
+  </div>
+</div>
+<!-- DISPLAY ITEMS END -->
+
+</div>
+
+<!-- UPLOAD MODAL -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-body">
+              <div class="container">
+                <div class="row">
+                  <div class="col-lg-6" style="margin-left: -10px;">
+                      <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Share Your Resources</h3>
+                        </div>
+                          <div class="panel-body">
+                            <form id= "contact-form" action="/upload" method="POST">
+                                  
+                                  <div class="form-group">
+                                    <label for="grade">Grade:</label>
+                                    <input class="form-control" id="grade" name="grade">
+                                  </div>
+
+                                  <div class="form-group">
+                                    <label for="form-chapter">Select a Chapter</label>
+                                    <select class="form-control" id="form-chapter" name="chapter">
+                                      <option> </option>
+                                      <option>Chapter 1</option>
+                                      <option>Chapter 2</option>
+                                      <option>Chapter 3</option>
+                                      <option>Chapter 4</option>
+                                      <option>Chapter 5</option>
+                                      <option>Chapter 6</option>
+                                      <option>Chapter 7</option>
+                                      <option>Chapter 8</option>
+                                      <option>Chapter 9</option>
+                                      <option>Chapter 10</option>
+                                    </select>
+                                  </div>
+                      
+                                  <div class="form-group">
+                                    <label for="form-type">Select Type (select one):</label>
+                                    <select class="form-control" id="form-type" name="type">
+                                      <option></option>
+                                      <option>Worksheet</option>
+                                      <option>Assessment</option>
+                                      <option>Lesson</option>
+                                      <option>Video</option>
+                                      <option>Other</option>
+                                    </select>
+                                  </div>
+                                
+                                  <div class="form-group">
+                                    <label for="form-topic">Topic/Concept:</label>
+                                    <input class="form-control" id="form-topic" name="topic">
+                                  </div>
+                                    
+                                  <div class="form-group">
+                                    <label for="form-link">Paste your link here: (or copy embeded code for videos)</label>
+                                    <input class="form-control" id="form-link" name="link">
+                                  </div>
+                                    <!-- HIDDEN LINK2 -->
+                                  <div id="link2" class="form-group">
+                                    <label for="link-input2">Link2:</label>
+                                    <input class="form-control" id="link-input2" name="link2">
+                                  </div>
+                                    <!-- END HIDDEN LINK2 -->
+                                   <div class="form-group">
+                                    <a href="#" onclick="addLink()" id="del-link">Add another link</a>
+                                  </div>
+
+                                  <div class="form-group">
+                                    <label for="comment">Additional Comment</label>
+                                    <textarea class="form-control" id="comment" rows="3" name="message"></textarea>
+                                  </div> 
+
+                                  <button class="btn btn-default" id="button1" type="submit" value="Send">Submit
+                                  </button><br><br>
+                                   
+                                   <div id="alert-display"></div>
+                                </form>
+                                  <p id="modal-message"></p>
+                               </div>
+                                <!-- <div class="modal-footer"> -->
+                                    <button id="change2"  type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <!-- </div> -->
+                          </div>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END oF MODAL/FORM -->
+
+
+<!-- MODAL -->
+<div class="modal fade" id="myModal2" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content" style="margin-left: -150px; width:888px">
+      <div class="modal-header text-center">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title"></h4>
+      </div>
+        <div class="modal-body" id="mod-body">
+ <!--          <p id="modal-message2" class="alert alert-success"></p> -->
+        </div>
+        <div class="modal-footer">
+          <button id="change"  type="button" class="btn btn-default" data-dismiss="modal" onchange="AutomaticClose()">Close</button>
+        </div>
+    </div>
+  </div>
+</div>
+<!-- MODAL END -->
+
+<!-- FOOTER -->
+<!-- <footer>
+    <div class="footer navbar-fixed-bottom" style="background-color: black">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <p>Copyright &copy; The Murphy Group 2017</p>
+            </div>
+        </div>
+    </div>
+</footer> -->
+<!-- FOOTER END-->
+
+
+<script src="../java/calls.js"></script>
+<script src="../java/form.js"></script>
+</body>
+</html>
+

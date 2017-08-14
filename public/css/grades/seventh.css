@@ -1,0 +1,25 @@
+
+.panel-heading {
+background-color: salmon;
+font-size: 18px;
+}
+
+body{
+background-color: salmon
+}
+
+.panel-default>.panel-heading{
+background-image: -webkit-linear-gradient(top,salmon 0,salmon 100%); 
+background-image: -o-linear-gradient(top,salmon 0,salmon 100%);
+background-image: -webkit-gradient(linear,left top,left bottom,from(salmon),to(#e8e8e8));
+background-image: linear-gradient(to bottom,salmon 0,salmon 100%); 
+}
+
+
+#back{
+background: url("../img/seventh.png")
+no-repeat fixed center;
+background-size: 77%;
+padding: 0;
+height: 970px;
+}
