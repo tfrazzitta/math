@@ -31,7 +31,7 @@ var chapter=$("#form-chapter").val();
 var topic=$("#form-topic").val();
 var link=$("#form-link").val();
 var message=$("#comment").val();
-    if(type===""||chapter===""||topic===""||link===""||message===""){
+    if(type===""||chapter===""||topic===""||link===""|| message===""){
        $("#modal-message").addClass("alert alert-danger");
    	   $("#modal-message").html("Please Submit all Requirements");
    	   return false;
