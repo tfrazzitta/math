@@ -16,11 +16,8 @@ module.exports = {
     },
 
     'googleAuth' : {
-        //'clientID'      : '394445068141-d9aooue3m5jcc0t5h8citb8hgn5mtkjh.apps.googleusercontent.com',
-          'clientID'    :  '1055150405420-ovctp7rf67821mthnj8dglu16stvi4q8.apps.googleusercontent.com',
-        //'clientSecret'  : 'yuF4sW8VJoWfSfr-cm1K-k1H',
+        'clientID'    :  '1055150405420-ovctp7rf67821mthnj8dglu16stvi4q8.apps.googleusercontent.com',
         'clientSecret'  :  '7VGhFTh7PnBNm53lBZ4zohr4',
-        //'callbackURL'   : 'https://thecloset.herokuapp.com/auth/google/callback'
         // 'callbackURL'   : 'http://localhost:3000/auth/google/callback'
         'callbackURL'   : 'http://www.trmath.com/auth/google/callback'
     }

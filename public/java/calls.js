@@ -187,11 +187,13 @@ $(document).on("click","#save-btn",function(){
 ///////////END SAVE AN ITEM//////
 
 
-$(".modal-backdrop,#myModal2").on("click", function() {
-  $("#myModal2 iframe").attr("src", jQuery("#myModal2 iframe").attr("src"));
+$(".modal-backdrop,#myModal2",).on("click", function() {
+  $("#myModal2 iframe").attr("src", $("#myModal2 iframe").attr("src"));
 });
 
-
+$("#container-too-wide").on("click", function() {
+  $('#myModal').modal('toggle');
+})
 
 AutoAPI();
 
