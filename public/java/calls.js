@@ -187,13 +187,24 @@ $(document).on("click","#save-btn",function(){
 ///////////END SAVE AN ITEM//////
 
 
-$(".modal-backdrop,#myModal2",).on("click", function() {
+
+//=====MODAL SETTINGS====//
+
+////STOPS VIDEO WHEN MODAL CLOSES
+$(".modal-backdrop,#myModal2").on("click", function() {
   $("#myModal2 iframe").attr("src", $("#myModal2 iframe").attr("src"));
 });
 
+//CLOSES UPLOAD MODAL WHEN CLICKING THE CONTAINER
 $("#container-too-wide").on("click", function() {
   $('#myModal').modal('toggle');
 })
+
+//DOES NOT PAUSE VIDEO WHEN CLICK WITHIN THE MODAL 
+$("#myModal2 #mod-body").click(function(e) { e.stopPropagation(); });
+
+
+//=====MODAL SETTINGS====//
 
 AutoAPI();
 
