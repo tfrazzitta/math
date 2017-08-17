@@ -3,6 +3,8 @@ $("#link2").hide();
 $("#change2").hide();
 $("#change").hide();
 $("#link-input2").val("undefined")
+$("#char").hide();
+$("#char-1").hide();
 
 function addLink(){
 	$("#link2").show();
@@ -31,6 +33,20 @@ var chapter=$("#form-chapter").val();
 var topic=$("#form-topic").val();
 var link=$("#form-link").val();
 var message=$("#comment").val();
+console.log(topic.length)	
+
+	 if(topic.length>33){
+	 	$("#char-1").html("Please shorten the description of your topic");
+	 	$("#char-1").show();
+	 	return false;
+	 }
+
+	 if(message.length>25){
+	 	$("#char").html("Please shorten the description of your message");
+	 	$("#char").show();
+	 	return false;
+	 }
+
     if(type===""||chapter===""||topic===""||link===""|| message===""){
        $("#modal-message").addClass("alert alert-danger");
    	   $("#modal-message").html("Please Submit all Requirements");
@@ -48,3 +64,10 @@ var message=$("#comment").val();
 
 }); 
 
+$(document).on("click","#comment",function(){
+$("#char").hide();
+})
+
+$(document).on("click","#form-topic",function(){
+$("#char-1").hide();
+})

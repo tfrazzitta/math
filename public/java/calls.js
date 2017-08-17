@@ -196,14 +196,23 @@ $(".modal-backdrop,#myModal2").on("click", function() {
 });
 
 //CLOSES UPLOAD MODAL WHEN CLICKING THE CONTAINER
-$("#container-too-wide").on("click", function() {
-  $('#myModal').modal('toggle');
-})
-
+$("#container-too-wide").on("click", function() {$('#myModal').modal('toggle');})
 //DOES NOT PAUSE VIDEO WHEN CLICK WITHIN THE MODAL 
 $("#myModal2 #mod-body").click(function(e) { e.stopPropagation(); });
 
+$("#container-too-wide #form-type").click(function(e) { e.stopPropagation(); });
 
+$("#container-too-wide #form-chapter").click(function(e) { e.stopPropagation(); });
+
+$("#container-too-wide #form-topic").click(function(e) { e.stopPropagation(); });
+
+$("#container-too-wide #form-link ").click(function(e) { e.stopPropagation(); });
+
+$("#container-too-wide #contact-form ").click(function(e) { e.stopPropagation(); });
+
+$("#container-too-wide #comment").click(function(e) { e.stopPropagation(); });
+
+$("#container-too-wide .col-lg-6").click(function(e) { e.stopPropagation(); });
 //=====MODAL SETTINGS====//
 
 AutoAPI();
