@@ -21,8 +21,8 @@ module.exports = {
         //'clientSecret'  : 'yuF4sW8VJoWfSfr-cm1K-k1H',
         'clientSecret'  :  '7VGhFTh7PnBNm53lBZ4zohr4',
         //'callbackURL'   : 'https://thecloset.herokuapp.com/auth/google/callback'
-        // 'callbackURL'   : 'http://localhost:3000/auth/google/callback'
-        'callbackURL'   : 'http://www.trmath.com/auth/google/callback'
+        'callbackURL'   : 'http://localhost:3000/auth/google/callback'
+    //     'callbackURL'   : 'http://www.trmath.com/auth/google/callback'
     }
 
 };

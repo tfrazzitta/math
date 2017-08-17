@@ -63,7 +63,7 @@ console.log(data)
           $("#data").html(
           panel + data[i].chapter+ panelBody+data[i].type
           +'</h3><h4>'+data[i].concept+'</h4><h4>'
-          + '</h4></div><div><a  data-target="#myModal2" data-toggle="modal" href =#myModal2"'+ panelEnd);
+          + '</h4></div><div><a data-target="#myModal2" data-toggle="modal" href =#myModal2"'+ panelEnd);
       }
 
       else{ 
@@ -187,12 +187,13 @@ $(document).on("click","#save-btn",function(){
 ///////////END SAVE AN ITEM//////
 
 
+$(".modal-backdrop,#myModal2").on("click", function() {
+  $("#myModal2 iframe").attr("src", jQuery("#myModal2 iframe").attr("src"));
+});
+
+
 
 AutoAPI();
-
-
-
-
 
 ///=========TESTING LEAVE ALONE==========///////////
 
@@ -214,3 +215,4 @@ AutoAPI();
 
 
 
+// http://www.trmath.com/auth/google/callback
