@@ -195,10 +195,14 @@ $(".modal-backdrop,#myModal2").on("click", function() {
   $("#myModal2 iframe").attr("src", $("#myModal2 iframe").attr("src"));
 });
 
-//CLOSES UPLOAD MODAL WHEN CLICKING THE CONTAINER
-$("#container-too-wide").on("click", function() {$('#myModal').modal('toggle');})
 //DOES NOT PAUSE VIDEO WHEN CLICK WITHIN THE MODAL 
 $("#myModal2 #mod-body").click(function(e) { e.stopPropagation(); });
+$("#myModal2 #change").click(function(e) { e.stopPropagation(); });
+$("#myModal2 #modal-header").click(function(e) { e.stopPropagation(); });
+
+//=============================================//
+//CLOSES UPLOAD MODAL WHEN CLICKING THE CONTAINER
+$("#container-too-wide").on("click", function() {$('#myModal').modal('toggle');})
 
 $("#container-too-wide #form-type").click(function(e) { e.stopPropagation(); });
 
