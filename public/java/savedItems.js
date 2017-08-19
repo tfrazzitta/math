@@ -12,7 +12,7 @@ function Get(){
           url: '/saved'
         }).done(function(data) {
 
-          if(data.length<3){
+          if(data.length<4){
             $("#back").css("height","970px");
           }
            else{
