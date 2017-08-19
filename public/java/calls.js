@@ -195,6 +195,9 @@ $(document).on("click","#save-btn",function(){
         url: '/saved/'+dataId,
     }).done(function(data) {
        console.log(data)
+       setTimeout( function () { 
+          $("#change-color").css("color","red") 
+      }, 3000);
   })
 })
 ///////////END SAVE AN ITEM//////
