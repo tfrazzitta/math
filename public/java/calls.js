@@ -190,14 +190,14 @@ $(document).on("click","#chapter",function(){
 $(document).on("click","#save-btn",function(){
   var dataId= $(this).attr("data-id")
   console.log(dataId)
+   setTimeout( function () { 
+     $("#change-color").css("color","red") 
+   }, 3000);
     $.ajax({
         method: "POST",
         url: '/saved/'+dataId,
     }).done(function(data) {
        console.log(data)
-       setTimeout( function () { 
-          $("#change-color").css("color","red") 
-      }, 3000);
   })
 })
 ///////////END SAVE AN ITEM//////
