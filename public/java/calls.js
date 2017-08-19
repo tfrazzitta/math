@@ -189,20 +189,21 @@ $(document).on("click","#chapter",function(){
 ///////////SAVE AN ITEM//////
 var count =0;
 $(document).on("click","#save-btn",function(){
-  count++;
-    if(count==1){
-      setTimeout( function () { 
-        $("#change-color").css("color","red") 
-     }, 3000);
-    }
   var dataId= $(this).attr("data-id")
   console.log(dataId)
+  count++;
+    if(count==1){
+        $("#change-color").css("color","red") 
+    }
+    else{
+      $("#change-color").css("color","#777")
+    }
     $.ajax({
-        method: "POST",
-        url: '/saved/'+dataId,
-    }).done(function(data) {
-       console.log(data)
-  })
+          method: "POST",
+          url: '/saved/'+dataId,
+      }).done(function(data) {
+         console.log(data)
+    })
 })
 ///////////END SAVE AN ITEM//////
 
