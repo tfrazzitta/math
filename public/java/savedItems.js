@@ -11,13 +11,6 @@ function Get(){
           method: "GET",
           url: '/saved'
         }).done(function(data) {
-
-        if(data.length>3){
-          $("#back").css("height","auto");
-        }
-        else{
-          $("#back").css("height","970px");
-        }
            DisplayItems(data);
         })
     })
@@ -26,6 +19,13 @@ function Get(){
 function DisplayItems(data){
 $("#data").empty();
 console.log(data)
+    if(data.length>3){
+      $("#back").css("height","auto");
+    }
+    else{
+      $("#back").css("height","970px");
+    }
+    
   for(i=0;i<data.length;i++){
     var panel = '<div class="panel-group text-center"><div class="panel panel-default"><div class="panel-heading">'
     var panelBody = '</div><div class="panel-body" id="p-body"><h3>'
