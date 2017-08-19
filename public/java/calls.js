@@ -106,20 +106,14 @@ $(document).on("click","#type",function(){
    		   	grade:grade
    		   }
       }).done(function(data) {
-        console.log(data.length)
-
         if(data.length>3){
             $("#back").css("height","auto");
         }
         else{
           $("#back").css("height","970px");
         }
-
-         // if(data[0].video===""){
-         //    $("#back").css("height","970px");
-
-         // }
-          changeClasses();
+        
+        changeClasses();
           
         if(type==="Video"){
           $("#back").css("height","auto");
