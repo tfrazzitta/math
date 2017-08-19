@@ -24,7 +24,7 @@ $.ajax({
         console.log(data)
         for(i=0;i<data.length;i++){
           $("#browsers").append('<option value="'+data[i].concept+'">')   
-      }
+        }
       })
 }
 ///////////DISPLAY VIDEO//////
@@ -46,7 +46,19 @@ function DisplayItems(data){
 $("#data").empty();
 $("#data1").empty();
 $("#mod-body").empty();
-console.log(data)
+var panel = '<div class="panel-group text-center"><div class="panel panel-default"><div class="panel-heading">';
+var panelBody = '</div><div class="panel-body" id="p-body"><h3>';
+var err ="<h4>There are currently no resources for this section.<br>Click on upload to add a resource</h4></div>"  
+  if(data.length==0){
+        $("#back").css("height","970px");
+        $("#a").removeClass("col-lg-1")
+        $("#b").removeClass("col-lg-10")
+        $("#c").removeClass("col-lg-1")
+        $("#a").addClass("col-lg-4")
+        $("#b").addClass("col-lg-4")
+        $("#c").addClass("col-lg-4")
+        $("#data1").append(panel+ "Chapter"+ panelBody+err)
+  }
 
   for(i=0;i<data.length;i++){
     var panel = '<div class="panel-group text-center"><div style="height:314px"; class="panel panel-default"><div class="panel-heading">';
@@ -94,12 +106,19 @@ $(document).on("click","#type",function(){
    		   	grade:grade
    		   }
       }).done(function(data) {
-        if(data.length>3 || data[0].video!=""){
+        console.log(data.length)
+
+        if(data.length>3){
             $("#back").css("height","auto");
         }
         else{
           $("#back").css("height","970px");
         }
+
+         // if(data[0].video===""){
+         //    $("#back").css("height","970px");
+
+         // }
           changeClasses();
           
         if(type==="Video"){
@@ -197,8 +216,8 @@ $(".modal-backdrop,#myModal2").on("click", function() {
 
 //DOES NOT PAUSE VIDEO WHEN CLICK WITHIN THE MODAL 
 $("#myModal2 #mod-body").click(function(e) { e.stopPropagation(); });
-$("#myModal2 #change").click(function(e) { e.stopPropagation(); });
-$("#myModal2 #modal-header").click(function(e) { e.stopPropagation(); });
+$("#myModal2 .modal-footer").click(function(e) { e.stopPropagation(); });
+$("#myModal2 .modal-header").click(function(e) { e.stopPropagation(); });
 
 //=============================================//
 //CLOSES UPLOAD MODAL WHEN CLICKING THE CONTAINER
