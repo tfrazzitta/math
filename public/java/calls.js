@@ -60,8 +60,6 @@ var panelBody = '</div><div class="panel-body" id="p-body"><h3>';
 var err ="<h4>There are currently no resources for this section.<br>Click on upload to add a resource</h4></div>"  
   if(data.length==0){
         $("#type").val(tag);
-        // $("#chapter").val(chapTag);  
-        // $("#type").prop("disabled", true);
         $("#back").css("height","970px");
         $("#a").removeClass("col-lg-1")
         $("#b").removeClass("col-lg-10")
@@ -196,7 +194,11 @@ $(document).on("click","#chapter",function(){
 	   		   	grade:grade
 	   		   }
 	        }).done(function(data) {
-            $("#type").val(tag);      
+            $("#type").val(tag);
+            if(data.length==0){
+                $("#chapter").val(chapTag);  
+                $("#type").prop("disabled", true);
+            }      
             if(data.length>3){
               console.log(data.length)
               $("#back").css("height","auto")
