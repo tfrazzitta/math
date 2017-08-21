@@ -62,7 +62,7 @@ var err ="<h4>There are currently no resources for this section.<br>Click on upl
 
   for(i=0;i<data.length;i++){
     var panel = '<div class="panel-group text-center"><div style="height:314px"; class="panel panel-default"><div class="panel-heading">';
-    var panelBody = '</div><div class="panel-body" id="p-body"><h3>';
+    var panelBody = '</div><div class="panel-body" id="p-body" style="text-align:center"><h3>';
     var panelEnd = '"target="_blank">Link</a></div><hr>';
     var delHover= '<div class="middle" id="save-btn" data-id="'+data[i]._id+'"><div class="text">Save</div></div></div>';
 
