@@ -1,3 +1,5 @@
+var tag = $("#type").attr("tag")
+var chapTag = $("#chapter").attr("tag")
 
 function changeClasses(){
   var a = $("#a").attr("class");
@@ -42,14 +44,24 @@ function Video(data){
 /////////// END DISPLAY VIDEO//////
 
 ///////////DISPLAY ITEMS//////
-function DisplayItems(data){
+function DisplayItems(data,keepLocked){
 $("#data").empty();
 $("#data1").empty();
 $("#mod-body").empty();
+
+    if(keepLocked==1){
+      $("#type").prop("disabled", true);
+    }
+    else{
+      $("#type").prop("disabled", false);
+    }
 var panel = '<div class="panel-group text-center"><div class="panel panel-default"><div class="panel-heading">';
 var panelBody = '</div><div class="panel-body" id="p-body"><h3>';
 var err ="<h4>There are currently no resources for this section.<br>Click on upload to add a resource</h4></div>"  
   if(data.length==0){
+        $("#type").val(tag);
+        $("#chapter").val(chapTag);  
+        $("#type").prop("disabled", true);
         $("#back").css("height","970px");
         $("#a").removeClass("col-lg-1")
         $("#b").removeClass("col-lg-10")
@@ -65,7 +77,7 @@ var err ="<h4>There are currently no resources for this section.<br>Click on upl
     var panelBody = '</div><div class="panel-body" id="p-body"><h3>';
     var panelEnd = '"target="_blank">Link</a></div><hr>';
     var delHover= '<div class="middle" id="save-btn" data-id="'+data[i]._id+'"><div class="text">Save</div></div></div>';
-
+    var href='<br><br></h4><h4></h4></div><div><a href ="';
       if(data[i].link[0]==="<"){
           var panelEnd = '"target="_blank">Videos</a></div><hr>';
           data[i].type="Videos";
@@ -89,7 +101,7 @@ var err ="<h4>There are currently no resources for this section.<br>Click on upl
           + data[i].chapter
           + panelBody
           + data[i].type
-          +'</h3><h4>'+data[i].concept+'<br><br></h4><h4></h4></div><div><a href ="'
+          +'</h3><h4>'+data[i].concept+href
           +data[i].link+ panelEnd+delHover);
       }
   }
@@ -101,9 +113,10 @@ var err ="<h4>There are currently no resources for this section.<br>Click on upl
 $(document).on("click","#type",function(){
  var grade=  $(this).attr("value");
  var type=	 $("#type").val();
+ var chapter= $("#chapter").val();
  console.log(grade)
  console.log(type)
-	if(type==="Select By Type" || type===""){
+	if(type==="Select within your Chapter" || type===""){
 	 	return false;
 	}
 	else{
@@ -111,7 +124,8 @@ $(document).on("click","#type",function(){
         method: "POST",
         url: '/type/'+type,
    		data:{
-   		   	grade:grade
+   		   	grade:grade,
+          chapter:chapter
    		   }
       }).done(function(data) {
         if(data.length>3){
@@ -149,6 +163,9 @@ $(document).on("click","#topic-button",function(){
    		   	grade:grade
    		   }
       }).done(function(data) {
+        var keepLocked=1;
+        $("#type").val(tag);
+        $("#chapter").val(chapTag);
         $("#back").css("height","970px");
         $("#a").removeClass("col-lg-1")
         $("#b").removeClass("col-lg-10")
@@ -157,7 +174,7 @@ $(document).on("click","#topic-button",function(){
         $("#b").addClass("col-lg-4")
         $("#c").addClass("col-lg-4")
         $("#topic").val("");
-         DisplayItems(data);   
+         DisplayItems(data,keepLocked);   
       })
 })
 /////////// END input TOPIC//////
@@ -179,6 +196,7 @@ $(document).on("click","#chapter",function(){
 	   		   	grade:grade
 	   		   }
 	        }).done(function(data) {
+            $("#type").val(tag);      
             if(data.length>3){
               console.log(data.length)
               $("#back").css("height","auto")

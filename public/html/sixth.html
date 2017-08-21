@@ -48,22 +48,10 @@
 <!-- START  -->
 <div class="container">
   <div class="row">
-    <div class="col-lg-4">
-          <div class="form-group">
-              <select class="form-control" id="type" name="type" value="6">
-                <option>Select By Type</option>
-                <option>Worksheet</option>
-                <option>Assessment</option>
-                <option>Lesson</option>
-                <option>Video</option>
-                <option>Other</option>
-              </select><br>
-          </div>
-    </div>
 
     <div class="col-lg-4">
           <div class="form-group">
-              <select class="form-control" id="chapter" name="chapter" value="6">
+              <select class="form-control" id="chapter" name="chapter" value="6" tag="Select By Chapter">
                 <option>Select By Chapter</option>
                 <option>Chapter 1</option>
                 <option>Chapter 2</option>
@@ -77,6 +65,19 @@
                 <option>Chapter 10</option>
               </select><br>
             </div>
+    </div>
+
+    <div class="col-lg-4">
+          <div class="form-group">
+              <select class="form-control" id="type" name="type" value="6" disabled tag="Select within your Chapter">
+                <option>Select within your Chapter</option>
+                <option>Worksheet</option>
+                <option>Assessment</option>
+                <option>Lesson</option>
+                <option>Video</option>
+                <option>Other</option>
+              </select><br>
+          </div>
     </div>
     
       <div class="col-lg-4">

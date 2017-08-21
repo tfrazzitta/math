@@ -108,7 +108,6 @@ app.get("/grade/:id", function(req, res) {
 //////END RETRIEVE BY GRADE////
 
 
-///IM HERE  
 //////RETRIEVE BY TOPIC////
 app.post("/topic/:id", function(req, res) {
     console.log(req.params.id)
@@ -146,7 +145,7 @@ app.post("/chapter/:id", function(req, res) {
 //////RETRIEVE BY TYPE////
 app.post("/type/:id", function(req, res) {
     console.log(req.params.id)
-    WS.find({type:req.params.id,grade:req.body.grade}).exec(function(error,doc){
+    WS.find({type:req.params.id,grade:req.body.grade,chapter:req.body.chapter}).exec(function(error,doc){
       if (error) {
        console.log(error)
       }
