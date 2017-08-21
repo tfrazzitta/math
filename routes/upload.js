@@ -15,7 +15,7 @@ module.exports=function(app){
           type: req.body.type,
           concept: req.body.topic,
           link: req.body.link,
-          message: req.body.message
+          //message: req.body.message
         });
           NewWS.save(function(err,doc){
               if (err){
@@ -46,7 +46,7 @@ module.exports=function(app){
           type: req.body.type,
           concept: req.body.topic,
           link: req.body.link,
-          message: req.body.message
+         // message: req.body.message
         });
 
         var NewWS1 = new WS ({
@@ -55,7 +55,7 @@ module.exports=function(app){
           type: req.body.type,
           concept: req.body.topic,
           link: req.body.link2,
-          message: req.body.message
+         // message: req.body.message
         });
 
           NewWS.save(function(err,data){

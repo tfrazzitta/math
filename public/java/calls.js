@@ -1,5 +1,3 @@
-var tag = $("#type").attr("tag")
-var chapTag = $("#chapter").attr("tag")
 
 function changeClasses(){
   var a = $("#a").attr("class");
@@ -12,6 +10,27 @@ function changeClasses(){
     $("#c").addClass("col-lg-1")
   }
 }
+
+
+///if there is no data it spits out a generic error message panel display
+function errorMessage(data){
+var tag = $("#type").attr("tag")
+var panel = '<div class="panel-group text-center"><div class="panel panel-default"><div class="panel-heading">';
+var panelBody = '</div><div class="panel-body" id="p-body"><h3>';
+var err ="<h4>There are currently no resources for this section.<br>Click on upload to add a resource</h4></div>"  
+  if(data.length==0){
+        $("#type").val(tag);
+        $("#back").css("height","970px");
+        $("#a").removeClass("col-lg-1")
+        $("#b").removeClass("col-lg-10")
+        $("#c").removeClass("col-lg-1")
+        $("#a").addClass("col-lg-4")
+        $("#b").addClass("col-lg-4")
+        $("#c").addClass("col-lg-4")
+        $("#data1").append(panel+ "Sorry!"+ panelBody+err)
+  }
+}
+
 
 
 function AutoAPI(){
@@ -29,11 +48,14 @@ $.ajax({
         }
       })
 }
-///////////DISPLAY VIDEO//////
+
+
+
 function Video(data){
-  $("#data1").empty();
-  $("#data").empty();
-  console.log(data)
+$("#data1").empty();
+$("#data").empty();
+console.log(data)
+errorMessage(data)
   for(i=0;i<data.length;i++){
     //+data[i].concept+"</h3>" 
     ///use var delete for ADMINISTRATOR....append to data to delete
@@ -41,10 +63,12 @@ function Video(data){
     $("#data").append("<div><h3 class='text-center'>"+data[i].link +"</div><br>")
   }
 }
-/////////// END DISPLAY VIDEO//////
 
-///////////DISPLAY ITEMS//////
+
+
+
 function DisplayItems(data,keepLocked){
+var tag = $("#type").attr("tag")
 $("#data").empty();
 $("#data1").empty();
 $("#mod-body").empty();
@@ -55,20 +79,8 @@ $("#mod-body").empty();
     else{
       $("#type").prop("disabled", false);
     }
-var panel = '<div class="panel-group text-center"><div class="panel panel-default"><div class="panel-heading">';
-var panelBody = '</div><div class="panel-body" id="p-body"><h3>';
-var err ="<h4>There are currently no resources for this section.<br>Click on upload to add a resource</h4></div>"  
-  if(data.length==0){
-        $("#type").val(tag);
-        $("#back").css("height","970px");
-        $("#a").removeClass("col-lg-1")
-        $("#b").removeClass("col-lg-10")
-        $("#c").removeClass("col-lg-1")
-        $("#a").addClass("col-lg-4")
-        $("#b").addClass("col-lg-4")
-        $("#c").addClass("col-lg-4")
-        $("#data1").append(panel+ "Chapter"+ panelBody+err)
-  }
+
+  errorMessage(data)
 
   for(i=0;i<data.length;i++){
     var panel = '<div class="panel-group text-center"><div style="height:314px"; class="panel panel-default"><div class="panel-heading">';
@@ -107,6 +119,7 @@ var err ="<h4>There are currently no resources for this section.<br>Click on upl
 /////////// END DISPLAY ITEMS//////
 
 
+
 /////////// ONCLICK TYPE//////
 $(document).on("click","#type",function(){
  var grade=  $(this).attr("value");
@@ -127,14 +140,14 @@ $(document).on("click","#type",function(){
    		   }
       }).done(function(data) {
         if(data.length>3){
-            $("#back").css("height","auto");
+          $("#back").css("height","auto");
         }
         else{
           $("#back").css("height","970px");
         }
-        
+
         changeClasses();
-          
+
         if(type==="Video"){
           $("#back").css("height","auto");
           Video(data)
@@ -145,13 +158,15 @@ $(document).on("click","#type",function(){
       })
 	}
 })
-/////////// END ONCLICK TYPE//////
+
 
 
 /////////// input TOPIC/////////
 $(document).on("click","#topic-button",function(){
  var grade=  $(this).attr("value");
  var topic=	 $("#topic").val();
+ var tag = $("#type").attr("tag")
+ var chapTag = $("#chapter").attr("tag")
  console.log(grade)
  console.log(topic)
 	 	$.ajax({
@@ -175,12 +190,16 @@ $(document).on("click","#topic-button",function(){
          DisplayItems(data,keepLocked);   
       })
 })
-/////////// END input TOPIC//////
+
+
+
 
 ///////////ONCLICK CHAPTER//////
 $(document).on("click","#chapter",function(){
  var grade=  $(this).attr("value");
  var chapter= $("#chapter").val();
+ var tag = $("#type").attr("tag")
+ var chapTag = $("#chapter").attr("tag")
  console.log(grade)
  console.log(chapter)
  		if(chapter==="Select By Chapter" || chapter===""){
@@ -194,10 +213,12 @@ $(document).on("click","#chapter",function(){
 	   		   	grade:grade
 	   		   }
 	        }).done(function(data) {
+            var x =chapter;
             $("#type").val(tag);
+            
             if(data.length==0){
-                $("#chapter").val(chapTag);  
-                $("#type").prop("disabled", true);
+              var keepLocked=1;
+              $("#chapter").val(chapTag);  
             }      
             if(data.length>3){
               console.log(data.length)
@@ -207,11 +228,11 @@ $(document).on("click","#chapter",function(){
               $("#back").css("height","970px") 
             }
              changeClasses();
-	           DisplayItems(data);
+	           DisplayItems(data,keepLocked);
 	      	})	
      	}
 })
-/////////// END ONCLICK CHAPTER//////
+
 
 
 ///////////SAVE AN ITEM//////
@@ -221,11 +242,12 @@ $(document).on("click","#save-btn",function(){
   console.log(dataId)
   count++;
     if(count==1){
-        $("#change-color").css("color","red") 
+      $("#change-color").css("color", "red");
+      setTimeout(function(){
+        $("#change-color").css("color", "#777");
+      }, 5000);
     }
-    else{
-      $("#change-color").css("color","#777")
-    }
+
     $.ajax({
           method: "POST",
           url: '/saved/'+dataId,
@@ -233,7 +255,7 @@ $(document).on("click","#save-btn",function(){
          console.log(data)
     })
 })
-///////////END SAVE AN ITEM//////
+
 
 
 
@@ -252,20 +274,14 @@ $("#myModal2 .modal-header").click(function(e) { e.stopPropagation(); });
 //=============================================//
 //CLOSES UPLOAD MODAL WHEN CLICKING THE CONTAINER
 $("#container-too-wide").on("click", function() {$('#myModal').modal('toggle');})
-
-$("#container-too-wide #form-type").click(function(e) { e.stopPropagation(); });
-
-$("#container-too-wide #form-chapter").click(function(e) { e.stopPropagation(); });
-
-$("#container-too-wide #form-topic").click(function(e) { e.stopPropagation(); });
-
-$("#container-too-wide #form-link ").click(function(e) { e.stopPropagation(); });
-
-$("#container-too-wide #contact-form ").click(function(e) { e.stopPropagation(); });
-
-$("#container-too-wide #comment").click(function(e) { e.stopPropagation(); });
-
 $("#container-too-wide .col-lg-6").click(function(e) { e.stopPropagation(); });
+// $("#container-too-wide #form-type").click(function(e) { e.stopPropagation(); });
+// $("#container-too-wide #form-chapter").click(function(e) { e.stopPropagation(); });
+// $("#container-too-wide #form-topic").click(function(e) { e.stopPropagation(); });
+// $("#container-too-wide #form-link ").click(function(e) { e.stopPropagation(); });
+// $("#container-too-wide #contact-form ").click(function(e) { e.stopPropagation(); });
+// $("#container-too-wide #comment").click(function(e) { e.stopPropagation(); });
+
 //=====MODAL SETTINGS====//
 
 AutoAPI();

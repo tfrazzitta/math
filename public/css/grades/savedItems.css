@@ -36,3 +36,8 @@ border-color:darkseagreen;
     background-color: darkseagreen !important;
     border-color:darkseagreen !important;
 }
+
+#del-btn{
+	position: relative;
+    top: -15px;
+}

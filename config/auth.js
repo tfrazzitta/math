@@ -18,8 +18,8 @@ module.exports = {
     'googleAuth' : {
         'clientID'    :  '1055150405420-ovctp7rf67821mthnj8dglu16stvi4q8.apps.googleusercontent.com',
         'clientSecret'  :  '7VGhFTh7PnBNm53lBZ4zohr4',
-        // 'callbackURL'   : 'http://localhost:3000/auth/google/callback'
-        'callbackURL'   : 'http://www.trmath.com/auth/google/callback'
+        'callbackURL'   : 'http://localhost:3000/auth/google/callback'
+        // 'callbackURL'   : 'http://www.trmath.com/auth/google/callback'
     }
 
 };

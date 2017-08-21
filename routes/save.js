@@ -68,7 +68,7 @@ app.get("/saved", function(req, res) {
                                   chapter: doc[0].chapter,
                                   grade: doc[0].grade,
                                   link: doc[0].link,
-                                  message: doc[0].message,
+                                 //message: doc[0].message,
                                   type: doc[0].type,
                                   concept: doc[0].concept,
                                   _id: doc[0]._id,
@@ -112,8 +112,9 @@ app.post("/deleteOne/:id", function(req, res) {
                               chapter: doc[0].chapter,
                               grade: doc[0].grade,
                               link: doc[0].link,
-                              message: doc[0].message,
+                              //message: doc[0].message,
                               type: doc[0].type,
+                              concept: doc[0].concept,
                               _id: doc[0]._id
                             } 
                               console.log(saver)

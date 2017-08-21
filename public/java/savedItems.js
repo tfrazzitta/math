@@ -27,16 +27,24 @@ console.log(data)
     }
     
   for(i=0;i<data.length;i++){
+    console.log(data[i].concept)
     var panel = '<div class="panel-group text-center"><div class="panel panel-default"><div class="panel-heading">'
     var panelBody = '</div><div class="panel-body" id="p-body"><h3>'
-    var panelEnd = '"target="_blank">Link</a></div><br>';
+    var panelEnd = '"target="_blank">Link</a></div><hr><br>';
     var endTags = '<button class="btn-primary" id="del-btn" data-id="'
     +data[i]._id+'"  email="'+data[i].email+'">Delete</button></div></div>'
-    $("#data").append(
-        panel 
-      + data[i].chapter+ panelBody+data[i].type+'</h3><h4>'+data[i].concept+'</h4><h5>'+ data[i].message
-      + '</h5></div><hr><div><a href ="'+data[i].link
-      + panelEnd+endTags);
+    // $("#data").append(
+    //     panel 
+    //   + data[i].chapter+ panelBody+data[i].type+'</h3><h4>'+data[i].concept+'</h4><h5>'+ data[i].message
+    //   + '</h5></div><hr><div><a href ="'+data[i].link
+    //   + panelEnd+endTags);
+    // }
+
+       $("#data").append(
+        panel + data[i].chapter
+        + panelBody+data[i].type+'</h3><h4>'+data[i].concept
+        +'</h4></div><div><a href ="'+data[i].link
+        +panelEnd+endTags);
     }
 
 }
