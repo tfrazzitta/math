@@ -62,7 +62,7 @@ var err ="<h4>There are currently no resources for this section.<br>Click on upl
 
   for(i=0;i<data.length;i++){
     var panel = '<div class="panel-group text-center"><div style="height:314px"; class="panel panel-default"><div class="panel-heading">';
-    var panelBody = '</div><div class="panel-body" id="p-body" style="text-align:center"><h3>';
+    var panelBody = '</div><div class="panel-body" id="p-body"><h3>';
     var panelEnd = '"target="_blank">Link</a></div><hr>';
     var delHover= '<div class="middle" id="save-btn" data-id="'+data[i]._id+'"><div class="text">Save</div></div></div>';
 
@@ -70,8 +70,9 @@ var err ="<h4>There are currently no resources for this section.<br>Click on upl
           var panelEnd = '"target="_blank">Videos</a></div><hr>';
           data[i].type="Videos";
           data[i].concept= data[i].chapter + " Videos <br><br>";
-          $(".modal-header").html("Videos");
+          $(".modal-header").html("Videos");    
           $("#mod-body").append(data[i].link+ "<br><br><br><br>");
+       
           $("#data").html(
           panel + data[i].chapter+ panelBody+data[i].type
           +'</h3><h4>'+data[i].concept+'</h4><h4>'
@@ -79,10 +80,17 @@ var err ="<h4>There are currently no resources for this section.<br>Click on upl
       }
 
       else{ 
+        // $("#data1").append(
+        //   panel+ data[i].chapter+ panelBody+data[i].type
+        //   +'</h3><h4>'+data[i].concept+'</h4><h5>'+ data[i].message
+        //   + '</h5></div><div><a href ="'+data[i].link+ panelEnd+delHover);
         $("#data1").append(
-          panel+ data[i].chapter+ panelBody+data[i].type
-          +'</h3><h4>'+data[i].concept+'</h4><h5>'+ data[i].message
-          + '</h5></div><div><a href ="'+data[i].link+ panelEnd+delHover);
+          panel
+          + data[i].chapter
+          + panelBody
+          + data[i].type
+          +'</h3><h4>'+data[i].concept+'<br><br></h4><h4></h4></div><div><a href ="'
+          +data[i].link+ panelEnd+delHover);
       }
   }
 }
