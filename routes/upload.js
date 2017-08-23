@@ -212,7 +212,7 @@ app.post("/videoDel/:id", function(req, res) {
       }
       else{
         console.log(data)
-       // res.send(data)
+        res.send(data)
       }
    });
 })

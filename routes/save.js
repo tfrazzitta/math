@@ -10,13 +10,15 @@ module.exports=function(app){
 //////SAVE AN ITEM//////
 app.post("/saved/:id", function(req, res) {
     Saved.find({name:req.user.google.name}).exec(function(error,data){
-      console.log(data.name)
-      // var save= data[0].savedItems
-      // for(i=0;i<save.length;i++){
-      //   if(save[i]===req.params.id){
-      //     res.send("Already Saved")
-      //   }
-      // }
+      console.log(data)
+      var save= data[0].savedItems
+      
+      for(i=0;i<save.length;i++){
+        if(save[i]===req.params.id){
+          res.send("Already Saved")
+          return false;
+        }
+      }
 
       if(data.length==0){
           console.log("NEWCOMER")
@@ -40,7 +42,7 @@ app.post("/saved/:id", function(req, res) {
 
       }    
       else{
-        console.log("ALREADY SAVED USER")
+        console.log("USER")
         Saved.update({name:req.user.google.name},{$push:{savedItems:req.params.id}}).exec(function(error,data){
           if (error) {
              console.log(error)
