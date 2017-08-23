@@ -56,10 +56,9 @@ $("#data").empty();
 console.log(data)
 errorMessage(data)
   for(i=0;i<data.length;i++){
-    //+data[i].concept+"</h3>" 
-    ///use var delete for ADMINISTRATOR....append to data to delete
+    ///use delete for ADMINISTRATOR....append to data to delete
    //"<button id='video' data-id='"+data[i]._id+"'>Delete</button>"
-    $("#data").append("<div><h3 class='text-center'>"+data[i].link +"</div><br><button id='video' data-id='"+data[i]._id+"'>Delete</button>")
+    $("#data").append("<div data-id='"+data[i]._id+"'><h3 class='text-center'>"+data[i].link +"</div><br>")
   }
 }
 
@@ -288,16 +287,16 @@ AutoAPI();
 ///=========TESTING LEAVE ALONE==========///////////
 
 ///////DELETE A VIDEO ONLY FOR TESTS//////
-$(document).on("click","#video",function(){
- var dataId=  $(this).attr("data-id");
- console.log(dataId)
-    $.ajax({
-        method: "POST",
-        url: '/videoDel/'+dataId,
-      }).done(function(data) {
-         DisplayItems(data);
-      })
-})
+// $(document).on("click","#video",function(){
+//  var dataId=  $(this).attr("data-id");
+//  console.log(dataId)
+//     $.ajax({
+//         method: "POST",
+//         url: '/videoDel/'+dataId,
+//       }).done(function(data) {
+//          DisplayItems(data);
+//       })
+// })
 
 
 
