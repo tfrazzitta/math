@@ -191,16 +191,16 @@ app.post("/input/:id", function(req, res) {
 
 
 ////////DELETE ALL RESOURCES//////
-app.get("/del", function(req, res) {
-  WS.remove().exec(function(error,data){
-     if(error){
-        res.send(error)
-      }
-      else{
-        res.send(data)
-      }
-   });
-})
+// app.get("/del", function(req, res) {
+//   WS.remove().exec(function(error,data){
+//      if(error){
+//         res.send(error)
+//       }
+//       else{
+//         res.send(data)
+//       }
+//    });
+// })
 //////////////END OF DELETE/////
 
 

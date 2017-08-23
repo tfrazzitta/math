@@ -11,6 +11,13 @@ module.exports=function(app){
 app.post("/saved/:id", function(req, res) {
     Saved.find({name:req.user.google.name}).exec(function(error,data){
       console.log(data.name)
+      var save= data[0].savedItems
+      for(i=0;i<save.length;i++){
+        if(save[i]===req.params.id){
+          res.send("Already Saved")
+        }
+      }
+
       if(data.length==0){
           console.log("NEWCOMER")
           console.log(req.user.google.name)
@@ -18,6 +25,7 @@ app.post("/saved/:id", function(req, res) {
           name:req.user.google.name,
           savedItems:[]
         });
+       
        NewSaved.save(function(err,doc){
        console.log(doc)
        Saved.update({name:req.user.google.name},{$push:{savedItems:req.params.id}}).exec(function(error,data){
@@ -32,7 +40,7 @@ app.post("/saved/:id", function(req, res) {
 
       }    
       else{
-        console.log("ALREADY SAVED INFO")
+        console.log("ALREADY SAVED USER")
         Saved.update({name:req.user.google.name},{$push:{savedItems:req.params.id}}).exec(function(error,data){
           if (error) {
              console.log(error)
@@ -117,14 +125,14 @@ app.post("/deleteOne/:id", function(req, res) {
                               concept: doc[0].concept,
                               _id: doc[0]._id
                             } 
-                              console.log(saver)
-                              bigArray.push(saver)
-                              callsCompleted++
+                                console.log(saver)
+                                bigArray.push(saver)
+                                callsCompleted++
 
-                                  if(callsCompleted==save.length){
-                                    res.send(bigArray)
-                                    bigArray=[];
-                                  }
+                                if(callsCompleted==save.length){
+                                  res.send(bigArray)
+                                  bigArray=[];
+                                }
                           })
                       }
             } 
@@ -135,15 +143,15 @@ app.post("/deleteOne/:id", function(req, res) {
 
 
 ////DELETE USERS SAVED ITEMS
-app.get("/deleteAll", function(req, res) {
-  console.log(req.user.google.name)
-  Saved.update({name: req.user.google.name}, {$set: {savedItems:[] }}).exec(function(error,data){
-    if ( error ) throw error;
-  Saved.find({name:req.user.google.name}).exec(function(error,data){ 
-    res.send(data)
-  })
-  })
-})
+// app.get("/deleteAll", function(req, res) {
+//   console.log(req.user.google.name)
+//   Saved.update({name: req.user.google.name}, {$set: {savedItems:[] }}).exec(function(error,data){
+//     if ( error ) throw error;
+//   Saved.find({name:req.user.google.name}).exec(function(error,data){ 
+//     res.send(data)
+//   })
+//   })
+// })
 ////END DELETE USERS SAVED ITEMS
 
 
@@ -151,42 +159,50 @@ app.get("/deleteAll", function(req, res) {
 
 
 /////DELETE EVERYONES SAVED ITEMS///
-app.get("/pull", function(req, res) {
-  console.log(req.user.google.name)
-  Saved.updateMany({name:req.user.google.name}, {$set: {savedItems: [] }}).exec(function(error,data){
-    if ( error ) throw error;
-    res.json(data)
-  })
-})
+// app.get("/pull", function(req, res) {
+//   console.log(req.user.google.name)
+//   Saved.updateMany({name:req.user.google.name}, {$set: {savedItems: [] }}).exec(function(error,data){
+//     if ( error ) throw error;
+//     res.json(data)
+//   })
+// })
 
 /////END DELETE ALLL////
 
 
 //delete users and saved items
-app.get("/delete", function(req, res) {
-  Saved.remove().exec(function(error,data){
-     if(error){
-        res.send(error)
-      }
-      else{
-        res.send(data)
-      }
-   });
-})
+// app.get("/delete", function(req, res) {
+//   Saved.remove().exec(function(error,data){
+//      if(error){
+//         res.send(error)
+//       }
+//       else{
+//         res.send(data)
+//       }
+//    });
+// })
 
 
 
 ////for testing
-app.get("/all", function(req, res) {
-Saved.find({name:req.user.google.name}).exec(function(error,data){
-      if(error){
-        res.send(error)
-      }
-      else{
-        res.send(data)
-      }
-})
-})
+// app.get("/all", function(req, res) {
+// Saved.find({name:req.user.google.name}).exec(function(error,data){
+//       if(error){
+//         res.send(error)
+//       }
+//       else{
+//         res.send(data)
+//       }
+// })
+// })
+
+
+
+app.get('/show', function (req, res){
+   User.find({}).exec(function(error,data){ 
+    res.json(data)
+   })   
+});
 
 
 }////MODULE END///////
