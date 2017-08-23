@@ -205,7 +205,7 @@ app.post("/input/:id", function(req, res) {
 
 
 //delete users and saved items
-app.post("/videoDel/:id", function(req, res) {
+app.get("/videoDel/:id", function(req, res) {
   WS.remove({_id:req.params.id}).exec(function(error,data){
      if(error){
         res.send(error)
