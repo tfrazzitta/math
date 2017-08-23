@@ -8,6 +8,12 @@ var WS = require("./models/WS.js");
 module.exports=function(app){
 ////////////////////// UPLOAD/////////
   app.post("/upload",function(req,res){
+    
+    if(req.body.type==="Videos" && req.body.link[0] !="<"){
+       res.send("link is incorrectly formatted");
+       return false;
+    }  
+
     if(req.body.link2==="undefined"){
         var NewWS = new WS ({
           grade:req.body.grade,
