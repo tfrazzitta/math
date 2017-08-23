@@ -11,12 +11,12 @@ module.exports=function(app){
 app.post("/saved/:id", function(req, res) {
     Saved.find({name:req.user.google.name}).exec(function(error,data){
       console.log(data.name)
-      var save= data[0].savedItems
-      for(i=0;i<save.length;i++){
-        if(save[i]===req.params.id){
-          res.send("Already Saved")
-        }
-      }
+      // var save= data[0].savedItems
+      // for(i=0;i<save.length;i++){
+      //   if(save[i]===req.params.id){
+      //     res.send("Already Saved")
+      //   }
+      // }
 
       if(data.length==0){
           console.log("NEWCOMER")

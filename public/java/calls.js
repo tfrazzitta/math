@@ -1,14 +1,3 @@
-// var name;
-// $(document).ready(function(){
-//   $.ajax({
-//         method: "GET",
-//         url: '/hello'
-//       }).done(function(user) {
-//         name = user;
-//       })
-// })
-
-
 function changeClasses(){
   var a = $("#a").attr("class");
   if(a==="col-lg-4"){
