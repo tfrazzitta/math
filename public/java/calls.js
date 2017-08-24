@@ -160,36 +160,72 @@ $(document).on("click","#type",function(){
 
 
 /////////// input TOPIC/////////
-$(document).on("click","#topic-button",function(){
- var grade=  $(this).attr("value");
- var topic=	 $("#topic").val();
- var tag = $("#type").attr("tag")
- var chapTag = $("#chapter").attr("tag")
- console.log(grade)
- console.log(topic)
-	 	$.ajax({
-        method: "POST",
-        url: '/topic/'+topic,
-   		data:{
-   		   	grade:grade
-   		   }
-      }).done(function(data) {
-        var keepLocked=1;
-        $("#type").val(tag);
-        $("#chapter").val(chapTag);
-        $("#back").css("height","970px");
-        $("#a").removeClass("col-lg-1")
-        $("#b").removeClass("col-lg-10")
-        $("#c").removeClass("col-lg-1")
-        $("#a").addClass("col-lg-4")
-        $("#b").addClass("col-lg-4")
-        $("#c").addClass("col-lg-4")
-        $("#topic").val("");
-         DisplayItems(data,keepLocked);   
-      })
-})
+// $(document).on("click","#topic-button",function(){
+//  var grade=  $(this).attr("value");
+//  var topic=	 $("#topic").val();
+//  var tag = $("#type").attr("tag")
+//  var chapTag = $("#chapter").attr("tag")
+//  console.log(grade)
+//  console.log(topic)
+// 	 	$.ajax({
+//         method: "POST",
+//         url: '/topic/'+topic,
+//    		data:{
+//    		   	grade:grade
+//    		   }
+//       }).done(function(data) {
+//         var keepLocked=1;
+//         $("#type").val(tag);
+//         $("#chapter").val(chapTag);
+//         $("#back").css("height","970px");
+//         $("#a").removeClass("col-lg-1")
+//         $("#b").removeClass("col-lg-10")
+//         $("#c").removeClass("col-lg-1")
+//         $("#a").addClass("col-lg-4")
+//         $("#b").addClass("col-lg-4")
+//         $("#c").addClass("col-lg-4")
+//         $("#topic").val("");
+//          DisplayItems(data,keepLocked);   
+//       })
+// })
 
 
+///automatic input information
+function onInput() {
+    var val = document.getElementById("topic").value;
+    var opts = document.getElementById('browsers').childNodes;
+    for (var i = 0; i < opts.length; i++) {
+      if (opts[i].value === val) {
+       var grade=  $("#topic-button").attr("value");
+       var topic=   opts[i].value
+       var tag = $("#type").attr("tag")
+       var chapTag = $("#chapter").attr("tag")
+       console.log(grade)
+       console.log(topic)
+         $.ajax({
+              method: "POST",
+              url: '/topic/'+topic,
+             data:{
+                 grade:grade
+                }
+            }).done(function(data) {
+              var keepLocked=1;
+              $("#type").val(tag);
+              $("#chapter").val(chapTag);
+              $("#back").css("height","970px");
+              $("#a").removeClass("col-lg-1")
+              $("#b").removeClass("col-lg-10")
+              $("#c").removeClass("col-lg-1")
+              $("#a").addClass("col-lg-4")
+              $("#b").addClass("col-lg-4")
+              $("#c").addClass("col-lg-4")
+              $("#topic").val("");
+               DisplayItems(data,keepLocked);   
+            })
+        break;
+      }
+    }
+  }
 
 
 ///////////ONCLICK CHAPTER//////
