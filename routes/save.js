@@ -186,7 +186,7 @@ app.post("/deleteOne/:id", function(req, res) {
 
 
 
-////for testing
+//for testing
 // app.get("/all", function(req, res) {
 // Saved.find({name:req.user.google.name}).exec(function(error,data){
 //       if(error){
