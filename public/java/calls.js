@@ -208,7 +208,7 @@ function onInput() {
              data:{
                  grade:grade
                 }
-            }).done(function(data) {
+            }).done(function(data){
               var keepLocked=1;
               $("#type").val(tag);
               $("#chapter").val(chapTag);
@@ -220,7 +220,7 @@ function onInput() {
               $("#b").addClass("col-lg-4")
               $("#c").addClass("col-lg-4")
               $("#topic").val("");
-               DisplayItems(data,keepLocked);   
+              DisplayItems(data,keepLocked);  
             })
         break;
       }
@@ -337,7 +337,3 @@ AutoAPI();
 
 
 /////=========END TESTING LEAVE ALONE==========///////////
-
-
-
-// http://www.trmath.com/auth/google/callback
