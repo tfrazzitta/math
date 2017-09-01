@@ -30,13 +30,14 @@
 
  <!-- END LOGIN -->
 <script>
-$("#google").hide();
-$(document).ready(function(){
-setTimeout( function () { 
-var href = $('#google').attr('href');
-window.location.href = href; 
-      }, 1500);
-});
+// $("#google").hide();
+
+// $(document).ready(function(){
+// setTimeout( function () { 
+// var href = $('#google').attr('href');
+// window.location.href = href; 
+//       }, 1500);
+// });
 
 function checkUser() {
   $.get('/user').done(function(response) {
