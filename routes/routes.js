@@ -2,6 +2,7 @@
 function myRoutes(app, passport) {
 
   app.get('/user', function(req, res) {
+    console.log(req.user)
     var loggedIn = false;
       if (req.user) {
         loggedIn = true;
