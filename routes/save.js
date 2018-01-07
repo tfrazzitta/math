@@ -10,6 +10,9 @@ module.exports=function(app){
 //////SAVE AN ITEM//////
 app.post("/saved/:id", function(req, res) {
     Saved.find({name:req.user.google.name}).exec(function(error,data){
+      //if(data.name==="undefined"){
+      //  
+      //}
       console.log(data)
       var save= data[0].savedItems
       

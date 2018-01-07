@@ -139,7 +139,7 @@ app.post("/chapter/:id", function(req, res) {
     console.log(req.body.grade)
     WS.find({chapter:req.params.id, grade:req.body.grade}).exec(function(error,doc){
       if (error) {
-       console.log(error)
+        console.log(error);
       }
       else {
         //console.log(doc);

@@ -15,6 +15,14 @@ function myRoutes(app, passport) {
       }
   });
 
+    // app.get('/unlink/google', function(req, res) {
+    //         var user          = req.user;
+    //         user.google.token = undefined;
+    //         user.save(function(err) {
+    //         //res.redirect('/home');
+    //         });
+    //     });
+
   app.get('/logout', function (req, res){
     req.session.destroy(function (err) {
     res.render('signOut');

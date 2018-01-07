@@ -20,7 +20,7 @@
             </div>
              <div class="col-sm-4"></div>
                 <div class="col-sm-4">
-               <img id="gif" src="http://www.peacesoft.in/images/loader.gif"><br><br>
+               <img id="gif" src="https://media.giphy.com/media/xTk9ZvMnbIiIew7IpW/giphy.gif"><br><br>
                 <a href="/auth/google" id="google" class="btn btn-danger"><span class="fa fa-google-plus"></span> Google</a>
                 </div>
                 <div class="col-sm-4"></div>
@@ -30,14 +30,14 @@
 
  <!-- END LOGIN -->
 <script>
-// $("#google").hide();
+$("#google").hide();
 
-// $(document).ready(function(){
-// setTimeout( function () { 
-// var href = $('#google').attr('href');
-// window.location.href = href; 
-//       }, 1500);
-// });
+$(document).ready(function(){
+setTimeout( function () { 
+var href = $('#google').attr('href');
+window.location.href = href; 
+      }, 1500);
+});
 
 function checkUser() {
   $.get('/user').done(function(response) {
