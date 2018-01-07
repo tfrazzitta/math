@@ -1,6 +1,4 @@
-// var express = require("express");
-var express = require('express'),
-    SessionStore = require('session-mongoose')(express)
+var express = require("express");
 var app = express();
 var port = process.env.PORT || 3000;
 //var fs = require("fs");
@@ -31,23 +29,14 @@ app.use(express.static("./public"));
 
 
 
-// app.use(session({
-//     secret: 'ilovescotchscotchyscotchscotch',
-//     name: "K-Closet",
-//     proxy: true,
-//     resave: true,
-//     saveUninitialized: true
-// }));
+app.use(session({
+    secret: 'ilovescotchscotchyscotchscotch',
+    name: "K-Closet",
+    proxy: true,
+    resave: true,
+    saveUninitialized: true
+}));
 
-app.use(
-  express.session({
-    store: new SessionStore({
-    url: 'mongodb://localhost/mathDept',
-    interval: 1200000
-  }),
-  cookie: { maxAge: 1200000 },
-  secret: 'ilovescotchscotchyscotchscotch'
-}))
 
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions

@@ -1,23 +1,17 @@
 {
-
   "name": "math-department",
   "version": "2.0.0",
   "description": "Share your resources",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "scripts": {
-	"start": "node server"
+    "start": "node server"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/tfrazzitta/math.git"
   },
   "author": "Tom Frazzitta",
-
   "license": "ISC",
-  
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.17.2",
@@ -38,14 +32,12 @@
     "passport-google-oauth": "^1.0.0",
     "passport-local": "^1.0.0",
     "passport-twitter": "^1.0.4",
+    "session-mongoose": "^0.5.2",
     "sharp": "^0.18.2",
     "weather-js": "^2.0.0"
-
   },
   "engines": {
     "node": "6.11.2",
     "npm": "3.10.10"
-
   }
 }
-
